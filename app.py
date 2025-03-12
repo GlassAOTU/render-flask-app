@@ -12,6 +12,7 @@ def sub():
         subtitles = YouTubeTranscriptApi.get_transcript(video_id)
         formatter = TextFormatter()
         formatted_subtitles = formatter.format_transcript(subtitles)
+        return jsonify({'video_id': video_id, 'subtitles': formatted_subtitles})
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
